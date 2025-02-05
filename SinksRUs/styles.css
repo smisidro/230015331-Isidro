@@ -1,18 +1,31 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    padding-top:80px;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: center;  
-    background-color:#C4DAD2; 
+    justify-content: space-between;
+    background-color: #C4DAD2;
     padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
-
 #logo {
-    width: 150px;  
-    height: 50px;  
-    background-image: url('images/sinkslogo.jpg'); 
+    width: 150px;
+    height: 50px;
+    background-image: url('images/sinkslogo.jpg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -25,32 +38,76 @@
     padding: 0;
     margin: 0;
     align-items: center;
-    justify-content: center; 
 }
 
 .navbar ul li {
     display: inline;
 }
 
-
 .navbar ul li a {
     text-decoration: none;
     color: white;
     font-size: 18px;
-    font-weight: 300; 
-    font-family: 'Poppins', sans-serif; 
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
     transition: color 0.3s ease-in-out;
 }
-
 
 .navbar ul li a:hover {
     color: black;
 }
 
-#Home {
-    position: relative;
+/* Hidden checkbox for menu toggle */
+.menu-toggle {
+    display: none;
 }
 
+/* Hamburger Button */
+.hamburger-menu {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #navbar-menu {
+        display: none; /* Hide menu items by default */
+        flex-direction: column;
+        width: 100%;
+        background-color: #C4DAD2;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px;
+        text-align: center;
+        border-top: 1px solid #ddd;
+    }
+
+    #navbar-menu li {
+        margin: 10px 0;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger icon */
+    }
+
+    /* When checkbox is checked, show the menu */
+    .menu-toggle:checked + .hamburger-menu + #navbar-menu {
+        display: flex;
+    }
+
+    .navbar ul li a {
+        font-size: 20px;
+    }
+
+    /* Adjustments for the home-container h1 */
+    .home-container h1 {
+        font-size: 36px;
+    }
+}
+
+/* Home Section */
 .home-container {
     background-image: url('images/homeimage.jpg');
     background-size: cover;
@@ -67,28 +124,18 @@
 }
 
 .home-container h1 {
-    font-size: 50px; 
-    font-family: 'Poppins', sans-serif; 
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
 }
 
 .home-container p {
-    font-size: 24px; 
+    font-size: 24px;
     margin-top: 10px;
-    width: 80%; 
+    width: 80%;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap');
-
-body {
-    font-family: 'Nunito', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
+/* Section Styles */
 .section {
     text-align: center;
     padding: 50px 5%;
@@ -110,6 +157,7 @@ body {
     line-height: 1.6;
 }
 
+/* Container Styles */
 .container {
     display: flex;
     justify-content: center;
@@ -123,16 +171,73 @@ body {
     height: 150px;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container img:hover {
     transform: scale(1.1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
+/* Type Grid */
+#type {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    justify-items: center;
+}
 
+.sink {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.sink img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.sink-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.sink:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.sink:hover .sink-text {
+    opacity: 1;
+}
+
+.sink:hover img {
+    transform: scale(1.1);
+}
+
+/* Contact Section */
 #contact {
     text-align: center;
     padding: 40px 20px;
@@ -147,7 +252,7 @@ body {
 
 .contact-details a {
     font-size: 24px;
-    color: #677fb4;
+    color: #00674f;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -156,19 +261,21 @@ body {
     transform: scale(1.2);
 }
 
+/* Footer */
 .footer {
     text-align: center;
-    background-color:#C4DAD2;
-    color: white;
+    background-color: #C4DAD2;
+    color: #004c3f;
     padding: 15px;
     font-size: 16px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
+/* Call to Action Button */
 .cta-btn {
     display: inline-block;
-    background-color: #677fb4;
+    background-color: #00674f;
     color: white;
     padding: 10px 20px;
     font-size: 18px;
@@ -180,24 +287,91 @@ body {
 
 .cta-btn:hover {
     background-color: #C4DAD2;
+} 
+
+/* Features Section */
+#features {
+    background-color: #f0f9f4;  /* Lightened background for elegance */
+    padding: 60px 20px;
 }
 
+.features-text {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.features-text h2 {
+    font-size: 36px;
+    color: #00674f; /* Elegant green color */
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.features-text p {
+    font-size: 18px;
+    color: #555; /* Soft gray text for contrast */
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Container for features */
+.features-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+/* Feature item card styling */
+.feature-item {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;  /* Rounded corners for a softer look */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Deeper shadow for elegance */
+    transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
+    border: 1px solid #e0e0e0;  /* Subtle border for definition */
+}
+
+.feature-item h3 {
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+    color: #00674f; /* Elegant green color for headings */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Hover Effects */
+.feature-item:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Enhanced hover shadow */
+}
+
+.feature-item:hover h3 {
+    color: #004c3f; /* Darker shade of green on hover */
+}
+
+.feature-item:hover p {
+    color: #444; /* Darker text color for readability on hover */
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 10px;
+    .features-text h2 {
+        font-size: 28px;
     }
-
-    .navbar ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .container {
-        flex-direction: column;
-    }
-
-    .home-container h1 {
-        font-size: 36px;
+    
+    .features-text p {
+        font-size: 16px;
     }
 }
