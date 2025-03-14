@@ -8,7 +8,7 @@
 <body>
     <?php
 
-        echo "<h1>Variables and Operators</h1>";
+        echo "<h1>Variables and Operator/h1>";
 
         $a = 15;
         $b = 7;
@@ -18,6 +18,7 @@
         echo "<p>Difference: " . ($a - $b) . "</p>";
         echo "<p>Product: " . ($a * $b) . "</p>";
         echo "<p>Qoutient: " . ($a / $b) . "</p>";
+        
     ?>
 
 </body>
