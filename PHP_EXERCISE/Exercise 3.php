@@ -25,15 +25,12 @@
         echo "Buzz\n <br>";
     }
     
-    else {
-        echo $i . "\n";
-    }
+    
 }
     
     echo "<h2>Fibonacci</h2>";
 
   
-
     $fib1 = 0;
     $fib2 = 1;
     $count = 0;
@@ -45,7 +42,7 @@
 
     
     if ($fib3 % 2 == 0) {
-        echo $fib3 . "\n";
+        echo $fib3 . "<br>";
     }
 
     

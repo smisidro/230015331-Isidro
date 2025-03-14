@@ -8,24 +8,24 @@
 <body>
     <?php
 
+    
     echo "<h1>Conditional Statements</h1>";
 
+    
     $number = -5; 
     
     if ($number % 2 == 0) {
-        echo $number . " is even.\n";
+        echo $number . " is even.<br>";
     } else {
-        echo $number . " is odd.\n";
+        echo $number . " is odd.<br>";
     }
-    
-    echo "<br>";
 
     if ($number > 0) {
-        echo $number . " is positive.\n";
+        echo $number . " is positive.<br>";
     } elseif ($number < 0) {
-        echo $number . " is negative.\n";
+        echo $number . " is negative.<br>";
     } else {
-        echo $number . " is zero.\n";
+        echo $number . " is zero.<br>";
     }
     ?>
     
